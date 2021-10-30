@@ -4,23 +4,30 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="{{ url_for('static', path='icons/archive.png') }}" type="image/x-icon">
 	<link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', path='css/calendar.css') }}">
 	<title>Demo</title>
 </head>
 <body>
-
-	<h1>Hellow world</h1>
-
-	<script src="{{ url_for('static', path='js/jquery-3.6.0.js') }}"></script>
-	<script src="{{ url_for('static', path='js/jquery-ui.min.js') }}"></script>
-	<script src="{{ url_for('static', path='js/ws.js') }}"></script>
-	<script src="{{ url_for('static', path='js/data.js') }}"></script>
-	<script src="{{ url_for('static', path='js/messages.js') }}"></script>
-
-	<!-- <script src="{{ url_for('static', path='js/script.js') }}"></script>		
-	<script src="{{ url_for('static', path='js/calendar.js') }}"></script>
-	<script src="{{ url_for('static', path='js/perspectiveTransform.js') }}"></script> -->
+	<input type="file" id='uploadImage' style='display: none'>
+	<div class="main-container">
+		<div class="window">
+			<div class="glass-container">
+			</div>
+			<div class="container">
+				<img id='image' />
+				<button class="upload-button" onclick="document.getElementById('uploadImage').click()">загрузить изображение</button>
+			</div>
+		</div>		
+		<div class="message-container"></div>
+	</div>	
+	<div class="background">
+		<img src="{{ url_for('static', path='svg/Ellipse.png') }}" class='bg-figure'></img>
+		<img src="{{ url_for('static', path='svg/Trianle.png') }}" class='bg-figure'></img>
+		<img src="{{ url_for('static', path='svg/Line.png') }}" class='bg-figure'></img>
+		<img src="{{ url_for('static', path='svg/Line2.png') }}" class='bg-figure'></img>
+		<img src="{{ url_for('static', path='svg/Trianle.png') }}" class='bg-figure'></img>
+		<img src="{{ url_for('static', path='svg/Ellipse.png') }}" class='bg-figure'></img>
+		<img src="{{ url_for('static', path='svg/Ellipse.png') }}" class='bg-figure'></img>
+	</div>
 </body>
 </html>
