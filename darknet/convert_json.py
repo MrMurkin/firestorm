@@ -21,18 +21,22 @@ class j():
             })
             if len(data[0]['objects'])>0:
                 for obj in data[0]['objects']:
-                    x = round(float(obj["relative_coordinates"]["center_x"] - obj["relative_coordinates"]["width"]/2)* 1920, 2)
-                    y = round(float(obj["relative_coordinates"]["center_y"] - obj["relative_coordinates"]["height"]/2) * 1080, 2)
-                    w = round(float(obj["relative_coordinates"]["width"]) * 1920, 2)
-                    h = round(float(obj["relative_coordinates"]["height"]) * 1080, 2)
-                    if (x + w)>= 1920:
+                    x = round(float(obj["relative_coordinates"]["center_x"] - obj["relative_coordinates"]["width"]/2)* 1919, 2)
+                    y = round(float(obj["relative_coordinates"]["center_y"] - obj["relative_coordinates"]["height"]/2) * 1079, 2)
+                    w = round(float(obj["relative_coordinates"]["width"]) * 1919, 2)
+                    h = round(float(obj["relative_coordinates"]["height"]) * 1079, 2)
+                    if (x + w) >= 1920:
                         w = 1920 - x - 1
-                    if (y + h)>= 1080:
+
+                    if (y + h) >= 1080:
                         h = 1080 - y - 1
+
                     if x < 0:
                         x = 0
+
                     if y < 0:
                         y = 0
+
                     self.json_out['annotations'].append({
                         'id': self.annotation,
                         'image_id': self.images,
