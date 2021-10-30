@@ -12,10 +12,18 @@
 	<div class="main-container">
 		<div class="window">
 			<div class="glass-container">
+				<a href=""><img src="{{ url_for('static', path='icons/upload.png') }}" class='menu-image'></img>загрузить кратинку</a>
+				<a href=""><img src="{{ url_for('static', path='icons/selection.png') }}" class='menu-image'></img>выделить зону</a>
+				<a href=""><img src="{{ url_for('static', path='icons/ai.png') }}" class='menu-image'></img>обучить нейросеть</a>
+				<a href=""><img src="{{ url_for('static', path='icons/down-arrow.png') }}" class='menu-image'></img>скачать json</a>
 			</div>
 			<div class="container">
 				<img id='image' />
-				<button class="upload-button" onclick="document.getElementById('uploadImage').click()">загрузить изображение</button>
+				<div class="drag-n-drop" id='dragArea'>
+					<img src="{{ url_for('static', path='icons/cloud.png') }}" id='cloud' alt="">
+					<p id='drag-n-text'>Перетащите картинку сюда, или</p>
+					<button class="upload-button" onclick="document.getElementById('uploadImage').click()">выбрать изображение</button>
+				</div>
 			</div>
 		</div>		
 		<div class="message-container"></div>
@@ -29,5 +37,7 @@
 		<img src="{{ url_for('static', path='svg/Ellipse.png') }}" class='bg-figure'></img>
 		<img src="{{ url_for('static', path='svg/Ellipse.png') }}" class='bg-figure'></img>
 	</div>
+
+	<script src="{{ url_for('static', path='js/dragAndUpload.js') }}"></script>
 </body>
 </html>

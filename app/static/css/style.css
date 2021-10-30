@@ -31,20 +31,51 @@ html, body {
     border-radius: 15px;
 
     display: flex;
+
+    border-radius: 15px;
+    box-shadow: 0px 3px 5px rgba(126, 126, 126, 0.425);
+    overflow: hidden;
 }
+
+a {
+    color: #404040;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 24px;
+    margin-bottom: 20px;
+
+    padding: 10px 20px;
+
+    display: flex;
+    align-items: center;
+
+    font-variant: small-caps;
+}
+
 .glass-container {
     width: 30%;
-    height: calc(100% - 64px);
+    height: 100%;
 
     background-color: rgba(255, 255, 255, 0.40);
 
     backdrop-filter: blur(15px);
 
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+
+}
+
+.menu-image {
+    width: 24px;
+    opacity: 0.5;
+    margin-right: 10px;
 }
 
 .container {
     width: 70%;
-    height: calc(100% - 64px);
+    height: 100%;
 
     background-color: rgba(255, 255, 255, 0.99);
 
@@ -55,7 +86,7 @@ html, body {
 
 .upload-button {
     width: 245px;
-    height: 64px;
+    height: 54px;
 
     color: white;
 
@@ -91,6 +122,36 @@ html, body {
     position: absolute;
     width: 100vw;
     height: 100vh;
+}
+
+.drag-n-drop {
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='%230000004A' stroke-width='8' stroke-dasharray='8%2c 16' stroke-dashoffset='15' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: 16px;
+
+    width: 320px;
+    height: 264px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#cloud {
+    width: 86px;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+#drag-n-text {
+    font-size: 20px;
+    font-family: sans-serif;
+    text-align: center;
+    opacity: 0.5;
+    margin-bottom: 32px;
+    width: 240px;
+    pointer-events: none;
 }
 
 .bg-figure {
