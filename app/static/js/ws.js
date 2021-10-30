@@ -184,7 +184,19 @@ function saveBlob(blob, fileName) {
 function setBackground(blob) {
     console.log(document.querySelector('.glass-container'))
     let url = URL.createObjectURL(blob)
-    document.querySelector('.glass-container').src = url;
+
+    document.getElementById('upload-zone').style.display = 'none';
+    document.getElementById('select-zone').style.display = 'flex';
+
+    document.querySelector('#uploaded-image').src = url;
+    document.getElementById('c').style.width = document.querySelector('#uploaded-image').offsetWidth +'px';
+    document.querySelector('#uploaded-image').onload = function(){
+        document.getElementById('c').style.height = document.querySelector('#uploaded-image').offsetHeight +'px';
+    
+        cnv.width = document.querySelector('#uploaded-image').offsetWidth
+        cnv.height = document.querySelector('#uploaded-image').offsetHeight
+    }
+    
 }
 
 

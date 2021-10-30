@@ -196,3 +196,39 @@ a {
     right: -0%;
     transform: rotate(40deg) scale(1.1);
 }
+
+#select-zone {
+    display: none;
+    flex-direction: column;
+}
+
+#c {
+    position: absolute;
+    cursor: pointer !important;
+}
+
+#uploaded-image {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.undo-button {
+    display: none;
+
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    margin-top: -32px;
+    transform: translateY(64px);
+}
+
+.done-button {
+    display: none;
+
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    margin-top: -32px;
+    transform: translateY(128px);
+}

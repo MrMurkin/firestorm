@@ -1,6 +1,4 @@
-let cnv = document.getElementById('cnv');
-cnv.width = 360 * 2;
-cnv.height = 288 * 2;
+let cnv = document.getElementById('c');
 let ctx = cnv.getContext('2d');
 
 let cords = [];
@@ -32,6 +30,12 @@ cnv.onclick = function(e){
         document.getElementsByClassName('undo-button')[0].style.display = 'flex';
     }
 
+    if(cords.length >= 3){
+        document.getElementsByClassName('done-button')[0].style.display = 'flex';
+    } else {
+        document.getElementsByClassName('done-button')[0].style.display = 'none';
+    }
+
     return false;
     
 }
@@ -45,6 +49,12 @@ document.getElementsByClassName('undo-button')[0].onclick = function(){
     } else {
         document.getElementsByClassName('undo-button')[0].style.display = 'flex';
     }
+
+    if(cords.length >= 3){
+        document.getElementsByClassName('done-button')[0].style.display = 'flex';
+    } else {
+        document.getElementsByClassName('done-button')[0].style.display = 'none';
+    }
 }
 
 function drawDots(cords){
@@ -54,12 +64,12 @@ function drawDots(cords){
 
     if(cords.length > 0){
         for(let i = 0; i < cords.length; i++){
-            ctx.fillStyle = '#2962ff';
+            ctx.fillStyle = '#ff0f00';
             ctx.beginPath();
             ctx.arc(cords[i].x, cords[i].y, 4, 0, Math.PI*2, 1);
             ctx.fill();
 
-            ctx.fillStyle = '#2962ff70';
+            ctx.fillStyle = '#ff0f0070';
             ctx.beginPath();
             if(cords[i].selected){
                 ctx.arc(cords[i].x, cords[i].y, 10, 0, Math.PI*2, 1);
@@ -119,20 +129,20 @@ cnv.onmousemove = function(e){
 function getCords(){
     let sendedCords = []; 
     for(let i = 0; i < cords.length; i++){
-        sendedCords.push([[cords[i].x, cords[i].y]])
+        sendedCords.push([[cords[i].x * (1920/cnv.width), cords[i].y * (1080/cnv.height)]])
     }   
-    document.getElementsByClassName('modal-setting')[0].classList.add('closed');
-    setTimeout(()=>{
-        document.getElementsByClassName('modal-setting')[0].classList.remove('closed');
-        document.getElementsByClassName('modal')[0].style.display = 'none';
-    }, 400);
+
     let message = {
         message: "cords",
         cords: sendedCords
     }
-    ws.send(JSON.stringify(message))
+
+    alert(sendedCords);
+    // ws.send(JSON.stringify(message))
     // return sendedCords
 }
+
+document.getElementsByClassName('done-button')[0].onclick = getCords;
 
 function cancelSetting(){
     createCords();

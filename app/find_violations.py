@@ -37,7 +37,7 @@ class Analysis():
         cv.fillPoly(canvas, np.array([figure], np.int32), (1, 1, 1))
         return canvas
 
-    def find_violation(self, path_to_json):
+    def find_violation(self, path):
         '''
         Определение человека в опасной области
         path_to_json - путь до json файла с выходными данными нейронки
@@ -74,9 +74,9 @@ class Analysis():
         return status
 
 # класс принимает на размер кадра, путь до координат маски
-shape = [1080, 1920]
-path_to_config = './data_config_config.txt'
-analyz = Analysis(limit=0, shape=shape, path_to_config=path_to_config) # размер, путь
+#shape = [1080, 1920]
+#path_to_config = './data_config_config.txt'
+#analyz = Analysis(limit=0, shape=shape, path_to_config=path_to_config) # размер, путь
 
-status = analyz.find_violation('./result.json')
-print(status)
+#status = analyz.find_violation('./result.json')
+#print(status)

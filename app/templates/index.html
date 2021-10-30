@@ -17,13 +17,22 @@
 				<a href=""><img src="{{ url_for('static', path='icons/ai.png') }}" class='menu-image'></img>обучить нейросеть</a>
 				<a href=""><img src="{{ url_for('static', path='icons/down-arrow.png') }}" class='menu-image'></img>скачать json</a>
 			</div>
-			<div class="container">
+			<div class="container" id='upload-zone'>
 				<img id='image' />
 				<div class="drag-n-drop" id='dragArea'>
 					<img src="{{ url_for('static', path='icons/cloud.png') }}" id='cloud' alt="">
 					<p id='drag-n-text'>Перетащите картинку сюда, или</p>
 					<button class="upload-button" onclick="document.getElementById('uploadImage').click()">выбрать изображение</button>
 				</div>
+			</div>
+
+			<div class="container" id='select-zone' style='position: relative;'>
+				<p style='position: absolute; font-family: sans-serif; font-size: 24px; color: #404040; top: 32px;
+				left: 32px;'>Выделите опасную зону:</p>
+				<canvas id='c' style='cursor: pointer;'></canvas>
+				<img id="uploaded-image"></img>
+				<button class='undo-button'>ОТМЕНИТЬ<img src="{{ url_for('static', path='icons/undo.png') }}" class='menu-image'></button>
+				<button class='done-button'>ОПРЕДЕЛИТЬ<img src="{{ url_for('static', path='icons/ai.png') }}" class='menu-image'></button>
 			</div>
 		</div>
 		<div class="message-container"></div>
@@ -40,6 +49,7 @@
 
 	<script src="{{ url_for('static', path='js/dragAndUpload.js') }}"></script>
 	<script src="{{ url_for('static', path='js/jquery-3.6.0.js') }}"></script>
+	<script src="{{ url_for('static', path='js/perspectiveTransform.js') }}"></script>
 	<script src="{{ url_for('static', path='js/ws.js') }}"></script>	
 </body>
 </html>
