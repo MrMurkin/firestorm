@@ -49,6 +49,12 @@ document.getElementsByClassName('undo-button')[0].onclick = function(){
     } else {
         document.getElementsByClassName('undo-button')[0].style.display = 'flex';
     }
+
+    if(cords.length >= 3){
+        document.getElementsByClassName('done-button')[0].style.display = 'flex';
+    } else {
+        document.getElementsByClassName('done-button')[0].style.display = 'none';
+    }
 }
 
 function drawDots(cords){

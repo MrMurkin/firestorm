@@ -26,8 +26,10 @@
 				</div>
 			</div>
 
-			<div class="container" id='select-zone'>
-				<canvas id='c'></canvas>
+			<div class="container" id='select-zone' style='position: relative;'>
+				<p style='position: absolute; font-family: sans-serif; font-size: 24px; color: #404040; top: 32px;
+				left: 32px;'>Выделите опасную зону:</p>
+				<canvas id='c' style='cursor: pointer;'></canvas>
 				<img id="uploaded-image"></img>
 				<button class='undo-button'>ОТМЕНИТЬ<img src="{{ url_for('static', path='icons/undo.png') }}" class='menu-image'></button>
 				<button class='done-button'>ОПРЕДЕЛИТЬ<img src="{{ url_for('static', path='icons/ai.png') }}" class='menu-image'></button>
