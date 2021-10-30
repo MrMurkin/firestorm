@@ -1,0 +1,7 @@
+requests
+fastapi>=0.68.0
+pydantic>=1.8.0
+uvicorn[standard]>=0.15.0
+jinja2
+pika==1.2.0
+opencv-python==4.5.3.56
