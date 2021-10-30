@@ -1,5 +1,3 @@
-Ожидайте конечного решения.
-
 Докер контейнер основан на образе https://hub.docker.com/r/daisukekobayashi/darknet. Используется контейнер c OPENCV для GPU NVIDIA Titan.
 
 
@@ -14,3 +12,5 @@
 Доступные теги: https://hub.docker.com/r/daisukekobayashi/darknet/tags
 
 Узнать нужный тег: https://developer.nvidia.com/cuda-gpus
+
+Для обучения модели запустить скрипт train. Снимки для обучения должны лежать в папке ./annotations
