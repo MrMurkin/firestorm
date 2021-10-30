@@ -1,19 +1,21 @@
 from fastapi import FastAPI, WebSocket, Request, BackgroundTasks, WebSocketDisconnect
-from fastapi.responses import HTMLResponse, PlainTextResponse
+from fastapi.responses import HTMLResponse, PlainTextResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from fastapi import File, UploadFile
 
 import json
 import os
 #import cv2
 import base64
 import os
+import subprocess
 
 app = FastAPI()
 
-app.mount("/code/app/static", StaticFiles(directory='/code/app/static'), name='static')
+app.mount("/workspace/app/static", StaticFiles(directory='/workspace/app/static'), name='static')
 
-templates = Jinja2Templates(directory='/code/app/templates')
+templates = Jinja2Templates(directory='/workspace/app/templates')
 
 signalsFile = '/data/journal/journal.txt'
 rabbit_address = 'ai-rabbit'
@@ -109,6 +111,16 @@ def getFilesInfo(file, msgType):
 
  
 manager = ConnectionManager()
+
+@app.post("/uploadImage")
+def create_upload_file(file: UploadFile = File(...)):
+    print(file.filename)
+    with open('/images/{}'.format(file.filename).replace(' ','_'),'wb+') as file_object:
+        file_object.write(file.file.read())
+        bashCommand = "darknet detector test data/coco.data yolov3_findpeaple.cfg yolov3_findpeaple_last.weights {} -ext_output -dont_show -out result.json".format('/images/{}'.format(file.filename).replace(' ','_'))
+        process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
+    process.wait()
+    return FileResponse('predictions.jpg')
 
 @app.get("/")
 async def get_main_page(request: Request):

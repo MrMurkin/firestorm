@@ -5,3 +5,4 @@ uvicorn[standard]>=0.15.0
 jinja2
 pika==1.2.0
 opencv-python==4.5.3.56
+python-multipart

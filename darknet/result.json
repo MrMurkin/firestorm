@@ -1,0 +1,10 @@
+[
+{
+ "frame_id":1, 
+ "filename":"/images/oz_frame613.jpg", 
+ "objects": [ 
+  {"class_id":0, "name":"person", "relative_coordinates":{"center_x":0.392441, "center_y":0.530698, "width":0.066949, "height":0.315262}, "confidence":0.998846}, 
+  {"class_id":0, "name":"person", "relative_coordinates":{"center_x":0.467932, "center_y":0.510559, "width":0.063612, "height":0.331166}, "confidence":0.995225}
+ ] 
+}
+]

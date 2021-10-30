@@ -1,0 +1,10 @@
+net.optimized_memory = 0 
+mini_batch = 1, batch = 1, time_steps = 1, train = 0 
+Create CUDA-stream - 0 
+ Create cudnn-handle 0 
+
+ seen 64, trained: 384 K-images (6 Kilo-batches_64) 
+ Detection layer: 16 - type = 28 
+ Detection layer: 23 - type = 28 
+images/am3_1_frame011.jpg: Predicted in 3.613000 milli-seconds.
+person: 99%	(left_x:  794   top_y:  425   width:  155   height:  450)

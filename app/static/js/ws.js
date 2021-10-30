@@ -151,3 +151,41 @@ let images = [];
 let names = [];
 let statisticDate;
 let messages;
+let data;
+
+
+class Datas {
+    constructor(){
+
+    }
+    sendDatas(fileInput, route){
+        let formData = new FormData();
+        formData.append('file', fileInput.files[0])
+        let request = new XMLHttpRequest();
+        request.responseType = 'blob'
+        request.onload = function (e) {
+            var blob = e.currentTarget.response;
+            saveBlob(blob,'result.jpg')
+        }
+        request.open("POST", route)
+        request.send(formData)
+        console.log('send')
+    }
+    
+}
+function saveBlob(blob, fileName) {
+    var a = document.createElement('a');
+    a.href = window.URL.createObjectURL(blob);
+    a.download = fileName;
+    a.dispatchEvent(new MouseEvent('click'));
+    setBackground(blob)
+}
+
+function setBackground(blob) {
+    console.log(document.querySelector('.glass-container'))
+    let url = URL.createObjectURL(blob)
+    document.querySelector('.glass-container').src = url;
+}
+
+
+data = new Datas()

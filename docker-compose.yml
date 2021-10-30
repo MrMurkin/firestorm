@@ -2,8 +2,11 @@ version: "3"
 services:
     firestrom:
         container_name: "firestrom"
+        runtime: nvidia
         build: ./
         volumes:
-            - ./app:/code/app
+            - ./app:/workspace/app
+            - ./app/images:/images
+            - ./darknet:/workspace
         ports:
             - "81:80"

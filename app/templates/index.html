@@ -8,16 +8,15 @@
 	<title>Demo</title>
 </head>
 <body>
-	<input type="file" id='uploadImage' style='display: none'>
+	<input type="file" id='uploadImage' style='display: none' onchange="data.sendDatas(this, '/uploadImage')">
 	<div class="main-container">
 		<div class="window">
-			<div class="glass-container">
-			</div>
+			<img class="glass-container">
 			<div class="container">
 				<img id='image' />
 				<button class="upload-button" onclick="document.getElementById('uploadImage').click()">загрузить изображение</button>
 			</div>
-		</div>		
+		</div>
 		<div class="message-container"></div>
 	</div>	
 	<div class="background">
@@ -29,5 +28,7 @@
 		<img src="{{ url_for('static', path='svg/Ellipse.png') }}" class='bg-figure'></img>
 		<img src="{{ url_for('static', path='svg/Ellipse.png') }}" class='bg-figure'></img>
 	</div>
+	<script src="{{ url_for('static', path='js/jquery-3.6.0.js') }}"></script>
+	<script src="{{ url_for('static', path='js/ws.js') }}"></script>	
 </body>
 </html>
