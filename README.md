@@ -4,6 +4,9 @@
 "gpu-cv-cc75" для RTX 20-ой серии.
 
 Для создания образа (во время разработки): docker build -t firestorm . 
+
 Для запуска образа: docker run -p 81:80 firestorm
+
 Доступные теги: https://hub.docker.com/r/daisukekobayashi/darknet/tags
+
 Узнать нужный тег: https://developer.nvidia.com/cuda-gpus
