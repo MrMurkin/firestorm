@@ -1,0 +1,4 @@
+classes = 1
+train = annotation/train.txt
+names = annotation/obj.names
+backup = backup/

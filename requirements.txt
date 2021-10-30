@@ -6,3 +6,4 @@ jinja2
 pika==1.2.0
 opencv-python==4.5.3.56
 python-multipart
+opencv-python

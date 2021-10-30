@@ -11,16 +11,12 @@
 	<input type="file" id='uploadImage' style='display: none' onchange="data.sendDatas(this, '/uploadImage')">
 	<div class="main-container">
 		<div class="window">
-<<<<<<< HEAD
 			<div class="glass-container">
 				<a href=""><img src="{{ url_for('static', path='icons/upload.png') }}" class='menu-image'></img>загрузить кратинку</a>
 				<a href=""><img src="{{ url_for('static', path='icons/selection.png') }}" class='menu-image'></img>выделить зону</a>
 				<a href=""><img src="{{ url_for('static', path='icons/ai.png') }}" class='menu-image'></img>обучить нейросеть</a>
 				<a href=""><img src="{{ url_for('static', path='icons/down-arrow.png') }}" class='menu-image'></img>скачать json</a>
 			</div>
-=======
-			<img class="glass-container">
->>>>>>> f9c4be102b45300649986d554aea8e27a5b57622
 			<div class="container">
 				<img id='image' />
 				<div class="drag-n-drop" id='dragArea'>
@@ -41,12 +37,9 @@
 		<img src="{{ url_for('static', path='svg/Ellipse.png') }}" class='bg-figure'></img>
 		<img src="{{ url_for('static', path='svg/Ellipse.png') }}" class='bg-figure'></img>
 	</div>
-<<<<<<< HEAD
 
 	<script src="{{ url_for('static', path='js/dragAndUpload.js') }}"></script>
-=======
 	<script src="{{ url_for('static', path='js/jquery-3.6.0.js') }}"></script>
 	<script src="{{ url_for('static', path='js/ws.js') }}"></script>	
->>>>>>> f9c4be102b45300649986d554aea8e27a5b57622
 </body>
 </html>

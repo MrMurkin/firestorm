@@ -4,12 +4,18 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi import File, UploadFile
 
+from .find_violations import Analysis
+
 import json
 import os
 #import cv2
 import base64
 import os
 import subprocess
+
+shape = [1080, 1920]
+path_to_config = './data_config.txt'
+analyz = Analysis(limit=0, shape=shape, path_to_config=path_to_config)
 
 app = FastAPI()
 
@@ -19,7 +25,6 @@ templates = Jinja2Templates(directory='/workspace/app/templates')
 
 signalsFile = '/data/journal/journal.txt'
 rabbit_address = 'ai-rabbit'
-imagesFiles = '/data/minerImages/'
 imagesFiles = '/data/minerImages/'
 configFile = '/data/config/config.txt'
 videoAddress = 'rtsp://192.168.20.138:554/h264'
@@ -125,6 +130,12 @@ def create_upload_file(file: UploadFile = File(...)):
 @app.get("/")
 async def get_main_page(request: Request):
     return templates.TemplateResponse('index.html',{'request':request})
+
+@app.post("/cords")
+def save_cords(info: Request):
+    cords = info.json()
+    print(cords)
+    return
 
 @app.websocket("/MinersImages")
 async def websocket_endpoint(websocket: WebSocket):
