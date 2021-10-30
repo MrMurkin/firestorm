@@ -19,4 +19,8 @@
 
 Для предсказания тестовой (приватной) выборки запустить скрипт ./darknet/predict. Изображения должны быть в папке ./darknet/images
 
+Конфигурационный файл загружать в ./darknet/yolov3_findpeaple.cfg
+
+Веса загружать в ./darknet/yolov3_findpeaple_last.weights
+
 Красивый веб на 0.0.0.0:81
