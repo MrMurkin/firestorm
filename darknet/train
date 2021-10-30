@@ -1,3 +1,3 @@
 #!/bin/bash
-darknet detector train ./annotation/obj.data yolov3_findpeaple_train.cfg
+darknet detector train ./annotation/obj.data yolov3_findpeaple_train.cfg -dont_show
 
