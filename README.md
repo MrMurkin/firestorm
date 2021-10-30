@@ -9,8 +9,12 @@
 
 Для запуска образа: docker run -p 81:80 firestorm
 
+Проще всего запустить docker-compose build, затем up.
+
 Доступные теги: https://hub.docker.com/r/daisukekobayashi/darknet/tags
 
 Узнать нужный тег: https://developer.nvidia.com/cuda-gpus
 
 Для обучения модели запустить скрипт ./darknet/train. Снимки для обучения должны лежать в папке ./darknet/annotations
+
+Красивый веб на 0.0.0.0:81
