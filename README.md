@@ -1,3 +1,5 @@
+Ожидайте конечного решения.
+
 Докер контейнер основан на образе https://hub.docker.com/r/daisukekobayashi/darknet. Используется контейнер c OPENCV для GPU NVIDIA Titan.
 
 
