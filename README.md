@@ -14,3 +14,5 @@
 Узнать нужный тег: https://developer.nvidia.com/cuda-gpus
 
 Для обучения модели запустить скрипт ./darknet/train. Снимки для обучения должны лежать в папке ./darknet/annotations
+
+Красивый веб на 0.0.0.0:81
