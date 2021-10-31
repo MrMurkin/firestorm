@@ -5,7 +5,7 @@
 "FROM daisukekobayashi/darknet:gpu-cv-cc86" - образ для RTX 30-ой серии.
 "gpu-cv-cc75" для RTX 20-ой серии.
 
-Для создания образа (во время разработки): docker build -t firestorm . 
+Для создания образа: docker build -t firestorm . 
 
 Для запуска образа: docker run -p 81:80 firestorm
 
