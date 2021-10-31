@@ -7,7 +7,7 @@
 
 Для создания образа: docker build -t firestorm . 
 
-Для запуска образа: docker run -p 81:80 -v ./app:/workspace/app -v ./app/images:/images -v ./darknet:/workspace firestorm 
+Для запуска образа: docker run -p 81:80 -v ./app:/workspace/app -v \ ./app/images:/images -v \ ./darknet:/workspace firestorm 
 
 Проще всего запустить docker-compose build, затем up.
 
