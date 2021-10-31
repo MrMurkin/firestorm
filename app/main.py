@@ -3,6 +3,7 @@ from fastapi.responses import HTMLResponse, PlainTextResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi import File, UploadFile
+from fastapi.encoders import jsonable_encoder 
 
 from .find_violations import Analysis
 
@@ -14,7 +15,7 @@ import os
 import subprocess
 
 shape = [1080, 1920]
-path_to_config = './data_config.txt'
+path_to_config = '/workspace/app/data_config.txt'
 analyz = Analysis(limit=0, shape=shape, path_to_config=path_to_config)
 
 app = FastAPI()
@@ -26,7 +27,7 @@ templates = Jinja2Templates(directory='/workspace/app/templates')
 signalsFile = '/data/journal/journal.txt'
 rabbit_address = 'ai-rabbit'
 imagesFiles = '/data/minerImages/'
-configFile = '/data/config/config.txt'
+configFile = '/workspace/app/data_config.txt'
 videoAddress = 'rtsp://192.168.20.138:554/h264'
 jetsonAddress = '192.168.20.137'
 
@@ -132,7 +133,7 @@ async def get_main_page(request: Request):
     return templates.TemplateResponse('index.html',{'request':request})
 
 @app.post("/cords")
-def save_cords(info: Request):
+async def save_cords(info: Request):
     cords = info.json()
     print(cords)
     return
@@ -195,8 +196,13 @@ async def websocket_endpoint(websocket: WebSocket):
                     with open(configFile, 'w') as outfile:
                         print('JSON end', cords)
                         json.dump(cords, outfile)
-                print('--restart--')
-                os.system('docker restart video_nvds_1')
+                analyz = Analysis(limit=0, shape=shape, path_to_config=path_to_config)
+                status = analyz.find_violation('/workspace/result.json')
+                message = {
+                    'message': 'status',
+                    'status': status,
+                }
+                await manager.send_personal_message(message, websocket)
 
     except WebSocketDisconnect:
         manager.disconnect(websocket)      

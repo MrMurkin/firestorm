@@ -137,9 +137,12 @@ function getCords(){
         cords: sendedCords
     }
 
-    alert(sendedCords);
-    // ws.send(JSON.stringify(message))
-    // return sendedCords
+    //alert(sendedCords);
+    console.log(message)
+    //data.sendCords(message)
+
+    ws.send(JSON.stringify(message))
+    return sendedCords
 }
 
 document.getElementsByClassName('done-button')[0].onclick = getCords;

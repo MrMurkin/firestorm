@@ -47,6 +47,12 @@ $(document).ready(function() {
                     };
                     image.src = "data:image/png;base64, " + message.image
                     break;
+                case 'status':
+                    if (message.status){
+                        alert('Нарушение!')
+                    }else{
+                        alert('Нарушения нет.')
+                    }
             }
         }
     }   
@@ -171,7 +177,6 @@ class Datas {
         request.send(formData)
         console.log('send')
     }
-    
 }
 function saveBlob(blob, fileName) {
     var a = document.createElement('a');
